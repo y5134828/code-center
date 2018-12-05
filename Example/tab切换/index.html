@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab切换</title>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <style>
+        .tab-list {
+            width: 150px;
+            height: 30px;
+            display: flex;
+            background-color: #f5f5f5;
+            line-height: 30px;
+        }
+        .tab-item {
+            flex: 1;
+            width: 100px;
+        }
+        .tab-content {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="tab-list">
+    <div class="tab-item">
+        新闻
+    </div>
+    <div class="tab-item">
+        热点
+    </div>
+    <div class="tab-item">
+        政治
+    </div>
+</div>
+<div class="tab-wrapper">
+    <div class="tab-content show">
+        111
+    </div>
+    <div class="tab-content">
+        222
+    </div>
+    <div class="tab-content">
+        333
+    </div>
+</div>
+<script>
+    
+</script>
+</body>
+</html>
