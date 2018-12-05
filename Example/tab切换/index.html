@@ -9,21 +9,29 @@
     <script src="../js/jquery-1.9.1.min.js"></script>
     <style>
         .tab-list {
-            width: 150px;
+            width: 600px;
             height: 30px;
             display: flex;
             background-color: #f5f5f5;
             line-height: 30px;
+            text-align: center;
         }
         .tab-item {
-            flex: 1;
-            width: 100px;
+            width: 150px;
         }
         .tab-content {
             display: none;
         }
         .show {
             display: block;
+        }
+        .tab-content {
+            width: 600px;
+            height: 400px;border: 1px solid red;
+        }
+       .tab-list .on {
+           color: #00dfb9;
+           position: relative;
         }
     </style>
 </head>
@@ -51,7 +59,11 @@
     </div>
 </div>
 <script>
-    
+    $('.tab-list .tab-item').mouseover(function () {
+        var index = $('.tab-list .tab-item').index(this)
+        $(this).addClass('on').siblings().removeClass('on');
+        $(' .tab-content').eq(index).addClass('show').siblings('.tab-content').removeClass('show');
+    })
 </script>
 </body>
 </html>
