@@ -4,7 +4,11 @@
 		"ignore": []
 	},
 	"setting": {
+<<<<<<< HEAD
+		"urlCheck": true,
+=======
 		"urlCheck": false,
+>>>>>>> fanye
 		"es6": true,
 		"postcss": true,
 		"minified": true,
