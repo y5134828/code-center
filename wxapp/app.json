@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/upload_img/upload_img"
   ],
   "window":{
     "backgroundTextStyle":"light",

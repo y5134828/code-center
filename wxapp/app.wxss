@@ -1,10 +1,29 @@
 /**app.wxss**/
 .container {
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
 } 
+/*默认左右留白30rpx；*/
+.basic-box{
+  width: 92%;
+  height: auto;
+  margin: 0rpx auto;
+  background-color: #fff;
+}
+.position-rela{
+  position: relative;
+}
+.position-abso{
+  position: absolute;
+}
+/*分隔*/
+.separate-line{
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 30rpx;
+}
+.separate-line .red-star{
+  color: rgb(235, 45, 45);
+  display: inline-block;
+  margin:0 30rpx;
+}
