@@ -1,11 +1,13 @@
 {
   "pages":[
     "pages/index/index",
-<<<<<<< HEAD
-    "pages/logs/logs"
-=======
-    "pages/upload_img/upload_img"
->>>>>>> fanye
+    "pages/upload_img/upload_img",
+    "pages/click_model/click_model",
+
+
+
+    "pages/component/model/model"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

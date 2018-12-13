@@ -1,0 +1,11 @@
+<!--pages/click_model/click_model.wxml-->
+<view class='contianer'>
+  <view class='basic-box'>
+    <!--确认/取消弹窗-->
+    <view class='list-item' bindtap='showDialog'>确认/取消</view>
+    <view class="model"> 
+      <model id='dialog' title='确认框' content='确认/取消 弹窗' cancelText='取消' confirm='确定' bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent">
+      </model>
+    </view>
+  </view>
+</view> 

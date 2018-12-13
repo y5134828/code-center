@@ -4,11 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-<<<<<<< HEAD
-		"urlCheck": true,
-=======
 		"urlCheck": false,
->>>>>>> fanye
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -16,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
+	"libVersion": "2.4.2",
 	"appid": "wxaf7d7c03a7621964",
 	"projectname": "wxapp",
 	"debugOptions": {

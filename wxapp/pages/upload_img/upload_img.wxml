@@ -25,4 +25,5 @@
   <view class='basic-box position-rela'>
     <image class='thumb' src='{{thumb}}' bindtap='upload_thumb'></image>
   </view>
+  
 </view>
