@@ -1,0 +1,10 @@
+<!--pages/change_tab/change_tab.wxml-->
+<view class='contianer'>
+  <view class='basic-box'>
+    <!--确认/取消弹窗-->
+    <view class="model"> 
+      <tab id='tab' tabs="{{tabs}}" url="find_activity_cases" bind:onTabChange="_changetype">
+      </tab>
+    </view>
+  </view>
+</view> 

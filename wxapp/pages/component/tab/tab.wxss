@@ -1,0 +1,38 @@
+/* pages/component/tab/tab.wxss */
+.wx-tab {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.tab {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 80rpx;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-top: 30rpx;
+}
+.tab::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.tab-item {
+  flex: 1;
+  font-size: 34rpx;
+  color: #333;
+  padding: 20rpx 0;
+  margin-right: 40rpx;
+}
+.actived {
+  color: #3e87fb;
+  border-bottom: 2px solid #3e87fb;
+}

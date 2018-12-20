@@ -1,5 +1,5 @@
 //app.js
-var app = getApp()
+
 App({
   alert: function (msg) {
     wx.showModal({
@@ -49,7 +49,7 @@ App({
     login: '/api/wxapp/CustomerSell/login',//登录
     sendmobilecode: '/api/wxapp/public/sendmobilecode',//发送短信验证借口
     upload_asset: '/api/wxapp/CustomerSell/upload_asset',//图片上传接口
-
+    find_activity_cases: '/api/wxapp/CustomerSell/find_activity_cases',//查找模版数据
   },
   apiGet: function (url, data, callback) {
     wx.request({

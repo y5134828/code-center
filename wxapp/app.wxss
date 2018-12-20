@@ -5,7 +5,7 @@
 } 
 /*默认左右留白30rpx；*/
 .basic-box{
-  width: 92%;
+  width: 100%;
   height: auto;
   margin: 0rpx auto;
   background-color: #fff;

@@ -1,0 +1,8 @@
+<!--pages/component/tab/tab.wxml-->
+<view class='wx-tab'>
+  <view class='tab'>
+    <block wx:for="{{tabs}}" wx:key="id">
+      <text class="tab-item {{currentTabsIndex == index?'actived':''}}" bindtap='_onTabChange' data-index='{{index}}' data-type='{{item.type}}'>{{item.name}}</text>
+    </block>
+  </view>
+</view>

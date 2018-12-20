@@ -24,6 +24,12 @@ Page({
       url: '../../pages/click_model/click_model',
     })
   },
+  change_tab: function () {
+    wx.navigateTo({
+      url: '../../pages/change_tab/change_tab',
+    })
+  },
+  
   /**
    * 用户点击右上角分享
    */

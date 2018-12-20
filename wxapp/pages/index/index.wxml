@@ -17,5 +17,8 @@
     <view class='exam_item' bindtap='click_model'>
       <text>确认弹窗</text>
     </view>
+    <view class='exam_item' bindtap='change_tab'>
+      <text>tab切换</text>
+    </view>
   </view>
 </view>
