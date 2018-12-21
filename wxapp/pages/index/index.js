@@ -9,24 +9,33 @@ Page({
   onLoad: function () {
 
   },
+  /****常用布局 */
+  /**
+   * 商品列表
+   */
+  goods_list: function () {
+    wx.navigateTo({
+      url: '../pages/goods_list/goods_list',
+    })
+  },
   /****案例DEMO */
   /**
    * 上传图片案例
    */
   upload_img:function(){
     wx.navigateTo({
-      url: '../../pages/upload_img/upload_img',
+      url: '../demo/upload_img/upload_img',
     })
   },
   /****组件 */
   click_model:function(){
     wx.navigateTo({
-      url: '../../pages/click_model/click_model',
+      url: '../demo/click_model/click_model',
     })
   },
   change_tab: function () {
     wx.navigateTo({
-      url: '../../pages/change_tab/change_tab',
+      url: '../demo/change_tab/change_tab',
     })
   },
   

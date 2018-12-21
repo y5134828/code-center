@@ -1,0 +1,105 @@
+/* pages/pages/goods_list/goods_list.wxss */
+page{
+  background: #f4f4f4;
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.item{
+  width: 370rpx;
+  margin-bottom: 10rpx;
+}
+.item:nth-of-type(2n){
+  margin-left: 10rpx;
+}
+.thumb,.thumb image{
+  width: 370rpx;
+  height: 370rpx;
+}
+.info{
+  box-sizing: border-box;
+  padding:20rpx 5%; 
+  background: #fff;
+}
+.name{
+  font-size: 26rpx;
+  overflow : hidden;
+  text-overflow: hideen;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10rpx;
+}
+.price{
+  color: #e02e24;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+.price-total{
+  font-size: 32rpx;
+}
+.price-sale{
+  color: #999;
+  margin-left: 6rpx;
+  font-weight: 100;
+}
+
+/*
+**列表2 样式
+*/
+.list2 .item{
+  width: 730rpx;
+  height: 335rpx;
+  margin: 0 auto;
+  display: flex;
+  background: #fff;
+  margin-bottom: 10rpx;
+}
+.list2 .thumb image{
+  width: 310rpx;
+  height: 310rpx;
+  margin: 10rpx 10rpx 15rpx 10rpx;
+}
+.list2 .info{
+  box-sizing: border-box;
+  padding:10rpx 10rpx 15rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.list2 .name{
+  font-size: 30rpx;
+  line-height: 44rpx;
+  overflow : hidden;
+  text-overflow: hideen;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10rpx;
+}
+.list2 .company{
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.list2 .tags text{
+  font-size: 24rpx;
+  color: #d37b43;
+  background: #fdeee2;
+  padding:0 8rpx;
+  margin-right: 10rpx
+}
+.list2 .price{
+  color: #e02e24;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.list2 .price-total{
+  font-size: 36rpx;
+}
+.list2 .price-sale{
+  color: #999;
+  margin-left: 6rpx;
+  font-weight: 100;
+}

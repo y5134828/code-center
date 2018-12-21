@@ -1,0 +1,53 @@
+<!--pages/pages/goods_list/goods_list.wxml-->
+<skeleton selector="skeleton"
+          loading="spin"
+          bgcolor="#FFF"
+          wx:if="{{showSkeleton}}"></skeleton>
+<view class='container skeleton'>
+  <view class='list'>
+    <view class='item' wx:for="{{thumb_list}}" wx:key="{{thumb_list}}">
+      <view class='thumb skeleton-rect'>
+        <image src='{{item}}'></image>
+      </view>
+      <view class='info'>
+        <view>
+          <view class='name skeleton-rect'>迪斯（Desleep）声波电动牙刷成人无线感应充电牙刷新品上市酷蓝</view>
+        </view>
+        <view>
+          <view class='price skeleton-rect'>
+            <text class='price-icon'>￥</text>
+            <text class='price-total'>9.9</text>
+            <text class='price-sale'>已售1.4w件</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--列表2-->
+  <view class='tip-line'></view>
+  <view class='list2'>
+    <view class='item' wx:for="{{thumb_list}}" wx:key="{{thumb_list}}">
+      <view class='thumb skeleton-rect'>
+        <image src='{{item}}'></image>
+      </view>
+      <view class='info'>
+        <view>
+          <view class='name skeleton-rect'>迪斯（Desleep）声波电动牙刷成人无线感应充电牙刷新品上市酷蓝</view>
+          <view class='company skeleton-rect'>迪斯（Desleep）</view>
+        </view>
+        <view>
+          <view class='tags'>
+            <text class='skeleton-rect'>金牌卖家</text>
+            <text>排行第三</text>
+          </view>
+          <view class='price skeleton-rect'>
+            <text class='price-icon'>￥</text>
+            <text class='price-total'>9.9</text>
+            <text class='price-sale'>已售1.4w件</text>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+</view>

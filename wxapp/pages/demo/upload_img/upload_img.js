@@ -7,6 +7,7 @@ Page({
    */
   data: {
     upload_thumbs: [],//活动图片
+    thumb:''
   },
 
   /**

@@ -2,6 +2,15 @@
 <view class="container">
   <view class='separate-line'>
     <text class='red-star'>*</text>
+    <text>常用布局</text>
+  </view>
+  <view class='examp_list'>
+    <view class='exam_item' bindtap='goods_list'>
+      <text>商品列表</text>
+    </view>
+  </view>
+  <view class='separate-line'>
+    <text class='red-star'>*</text>
     <text>常用DEOM</text>
   </view>
   <view class='examp_list'>

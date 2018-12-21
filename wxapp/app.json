@@ -1,12 +1,12 @@
 {
   "pages":[
-   
     "pages/index/index",
-    "pages/upload_img/upload_img",
-    "pages/click_model/click_model",
-    "pages/change_tab/change_tab",
     
-
+    "pages/pages/goods_list/goods_list",
+    
+    "pages/demo/upload_img/upload_img",
+    "pages/demo/click_model/click_model",
+    "pages/demo/change_tab/change_tab",
 
     "pages/component/tab/tab",
     "pages/component/model/model"
