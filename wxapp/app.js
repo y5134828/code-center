@@ -43,7 +43,6 @@ App({
     channel: '小程序代码库',
     //appid
     key: "wxf04faac101f69793",
-    uid: 294 //企业展示类小程序需要修改的参数
   },
   apiList: {
     login: '/api/wxapp/CustomerSell/login',//登录
