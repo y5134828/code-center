@@ -1,4 +1,4 @@
-//app.js
+//app
 
 App({
   alert: function (msg) {
