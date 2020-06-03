@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="debounce">
+            <p>防抖函数： 规定时间内多次点击/执行时，只执行最后一次</p>
+            <button id="btn">点击</button>
+        </div>
+        <div class="debounce">
+            <p>节流函数： 多次点击/执行时，在每个规定时间内执行一次</p>
+            <button id="btn1">点击</button>
+        </div>
+    </div>
+
+    <script>
+        // 防抖、节流 利用了闭包的原理
+        // 闭包原理：在js种，变量的作用域是输入函数作用域的，函数执行完作用域就会被清理，但是闭包函数是建立在函数内部，
+          // 可以访问到父作用域的变量， 所以当父函数执行完成时，其作用域不会被销毁，会一直存在内存中，直到闭包函数不存在时才销毁
+        let btn = document.getElementById('btn');
+        btn.onclick = debodunce(function(){console.log('1')}, 10000);
+
+        function debodunce(fn, delay){
+            let timer = false;
+            return function(){
+                clearTimeout(timer);
+                timer = setTimeout(fn, delay);
+            }
+        }
+
+        let btn1 = document.getElementById('btn1');
+        btn1.onclick = throttle(function(){console.log('1')}, 1000);
+
+        function throttle(fn, delay) {
+            let stat = true;
+            return function () {
+                if(!stat){
+                    return false
+                }
+                stat = false;
+                setTimeout(() => {
+                    fn.apply(this);
+                    stat = true;
+                }, delay);
+            }
+        }
+    </script>
+</body>
+</html>

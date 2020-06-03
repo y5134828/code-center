@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .header{
+            width: 100%;
+            height: 66px;
+            /* background-color: aqua; */
+            clear: both;
+        }
+        .aside{
+            float: left;
+            width: 20%;
+            height: 500px;
+            /* background-color: green; */
+        }
+        .content{
+            float: left;
+            width: 80%;
+            height: 500px;
+            /* background-color: red; */
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <v-header></v-header>
+        <v-aside></v-aside>
+        <v-content></v-content>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let obj1 = {
+            name: '张三',
+            age: 13
+        };
+        let value = obj1.name
+        Object.defineProperty(obj1,'name',{
+            enumerable: true,
+            configurable: true,
+            get(){
+                return value
+            },
+            set(newVal){
+                console.log(newVal);
+                console.log(obj1.name);
+                if(newVal != obj1.name){
+                    value = 'newVal';
+                    // obj1.name = newVal
+                }
+            }
+            // value: '王五'
+        })
+        obj1.name = '李四'
+        console.log(obj1);
+        
+        // 声明子组件
+        Vue.component('VBtn', {
+            template:`<button>按钮</button>`
+        });
+
+        let VHeader = {
+            template: `<div class="header">
+                <div>header</div>
+                <v-btn></v-btn>
+            </div>`,
+            components: {
+                
+            },
+            data(){
+                return {
+                    header:"头部组件"
+                }
+            }
+        }
+
+        let VContent =  {
+            template: `<div class="content">Content</div>`,
+            data(){
+                return {
+                    mes: 'component'
+                }
+            }
+        }
+
+        let VAside = {
+            template: `<div class="aside">aside</div>`,
+            data(){
+                return{
+
+                }
+            }
+        }
+
+        new Vue({
+            el: "#app",
+            components: {  // 父组件注册子组件
+                VHeader,
+                VAside,
+                VContent
+            },
+            data() {
+                return {
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>

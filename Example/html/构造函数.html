@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.say = function () {console.log('构造函数方法')};
+        }
+        var p1 = new Person('张三', 25); // 调用构造函数创建对象，Person是p1的构造函数，p1是Person的实例
+        // 构造函数执行过程
+        // 1. 创建一个对象p1
+        // 2. 创建一个内部对象this，将this指向p1
+        // 3. 在构造函数内部，操作this就是操作该实例
+        // 4. 返回值
+            // 1). 如果函数没有返回值，默认就是构造函数的实例
+            // 2). 如果函数返回了一个基本类型的值，那么本次函数的返回值还是该实例
+            // 3). 如果返回一个复杂类型的值，那么本函数的返回值就是该值
+            // 基本数据类型：数字、字符、布尔、null、undefind、symbel
+            // 复杂数据类型：数组、对象、map
+        // new Object(); new Array(); new Date(); new RegExp(); 都是内置的构造函数
+        
+        //如何判断某个对象是不是某个构造函数的实例? 
+        // 1. 使用 instanceof 判断
+        console.log(p1 instanceof Person); // 返回true表示p1是Person的实例
+        // 2. 在浏览器中打印对象，该对象中具有一个constructor属性，这个constructor的指向就是该对象的构造函数
+
+        // js原型链：
+        // 实例具有构造函数的原型对象（也就是构造函数的prototype）
+        // 放到原型链里可以避免内存泄露 
+            // 1. 直接给构造函数原型对象添加方法
+            Person.prototype.run = function(){ console.log('构造函数原型对象添加方法') };
+            p1.run(); // 实例可以使用构造函数的原型对象
+            // 2. 修改构造函数的原型对象 (注意：使用这种修改方式，实例化必须放在修改方法之后，否则无法使用新添加的方法)
+            Person.prototype = {
+                constructor: Person, // 指向Person，不改变原来的指向，仍可以调用以前的方法
+                run2: function () { console.log('修改原型对象') }
+            }
+            var p2 = new Person();
+            console.log(p2);
+            p2.run2();
+            // 3. 拷贝继承（深拷贝） 三种方式
+                // 深拷贝 生成一个新的对象
+                let obj1 = {name: "张三", age: "28", sex: "男"}; 
+                /*1).*/ var objString = JSON.stringify(obj1);
+                        var obj2 = JSON.parse(objString);
+                /*2).*/ var obj3 = {};
+                    for(let key in obj1){obj3[key] = obj1[key]};
+                // 浅拷贝 是克隆对象的指向，修改拷贝的值，原对象与会修改
+                /*1).*/ var obj4 = Object.assign({}, obj1); // ES6对象方法，组合两个对象，返回一个新对象 
+    </script>
+</body>
+</html>

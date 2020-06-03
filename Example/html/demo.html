@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 120px;
+            height: 120px;
+            background: #efefef;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        /* 拖拽函数 */
+        window.onload = function () {
+            let drag = document.getElementById('box');
+            drag.onmousedown = function (e) {
+                var e = e || window.event;
+                let diffX = e.clientX - drag.offsetLeft;
+                let diffY = e.clientY - drag.offsetTop;
+                console.log("diffX: " + diffX + " diffY: " + diffY);
+                drag.onmousemove = function (e) {
+                    let left = e.clientX - diffX;
+                    let top = e.clientY - diffY;
+                    if(left < 0){
+                        left = 0;
+                    } else if (left > window.innerWidth - drag.offsetWidth) {
+                        left = window.innerWidth - drag.offsetWidth;
+                    }
+                    if(top < 0){
+                        top = 0;
+                    } else if (top > window.innerHeight - drag.offsetHeight) {
+                        top = window.innerHeight - drag.offsetHeight;
+                    }
+                    console.log("left: " + left + " top: " + top)
+                    drag.style.left = left + 'px';
+                    drag.style.top = top + 'px';
+                };
+                document.onmouseup = function(){
+                    drag.onmousemove = null;
+                    drag.onmouseup = null;
+                }
+            };
+            
+        }
+        
+        /* 实现call函数 */
+        Function.prototype.myCall = function (context) {
+            if(typeof this != "function"){
+                return new TypeError('not function');
+            }
+            context = context || window;
+            context.fn = this;
+            let arg = [...arguments].slice(1);
+            let result = context.fn(...arg);
+            delete context.fn;
+            return result;
+        }
+        console.log(Math.max.call(null,1,3,33434));
+        console.log(Math.max.myCall(null,1,3,33434));
+        
+        /*ajax*/
+        function kajax(method, url) {
+            let xhr = new XMLHttpRequest();
+            xhr.open()
+        }
+
+    </script>
+</body>
+</html>

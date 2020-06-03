@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .desc .active {
+      color: red;
+    }
+
+    .font-18 {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <span v-bind:title="message" v-if="show">
+      {{ changeMess }}
+    </span>
+    <ul>
+      <todo-item v-for="(item,index) in items" v-bind:item="item" :index="index"></todo-item>
+    </ul>
+    <!-- <todo-item></todo-item> -->
+    <div>
+      <p class="desc">这是一段<span :class="classObject">表达文字</span></p>
+    </div>
+
+    <div>
+      <p>
+        这是一段条件判断语句:
+        <span v-if="show">真</span>
+        <span v-else>假</span>
+      </p>
+    </div>
+
+    <div @click="clickDiv">
+      <button @click.once="clickBtn">点击按钮</button>
+      <a href="https://baidu.com" @click.prevent="clickHref">阻止跳转</a>
+    </div>
+
+    <div v-on:scroll.passive="onScroll">滑动passive</div>
+
+    <input value="" placeholder="请输入" v-model.lazy="message" />
+    <br />
+    <router-link to="/foo">GO TO FOO --- {{username}}</router-link>
+    <br />
+    <router-link to="/bar">GO TO BAR --- {{username}}</router-link>
+
+    <router-view></router-view>
+    <router-view name="b"></router-view>
+    <router-view name="a"></router-view>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script>
+    Vue.component('todo-item', {
+      template: '<li>{{index}} -- {{item}}</li>',
+      props: [
+        'item',
+        'index'
+      ]
+    })
+
+    const Foo = { template: '<div>foo</div>' };
+    const Bar = { template: '<div>bar</div>' };
+
+    const List1 = { template: '<div>List1</div>' };
+    const List2 = { template: '<div>List2</div>' };
+    const List3 = { template: '<div>List3</div>' };
+
+    const routes = [
+      {
+        path: '/',
+        name: '/',
+        components: {
+          default: List1,
+          a: List2,
+          b: List3
+        }
+      }
+    ]
+
+    const router = new VueRouter({
+      routes // (缩写) 相当于 routes: routes
+    })
+
+    var app = new Vue({
+      el: "#app",
+      router,
+      data: {
+        message: 'hellow world',
+        show: true,
+        items: [1, 2, 3, 4],
+        active: true,
+        bigSize: false
+      },
+      methods: {
+        click: function (item) {
+          this.message = item
+        },
+        clickDiv: function () {
+          console.log('div')
+        },
+        clickBtn: function () {
+          console.log('btn');
+        },
+        clickHref: function () {
+          console.log('href');
+        }
+      },
+      computed: {
+        changeMess: function () {
+          console.log(this)
+          return this.message.split('').reverse().join('');
+        },
+        classObject: function () {
+          return {
+            'active': this.active,
+            'font-18': this.bigSize
+          }
+        },
+        username() {
+          return this.$router.params ? this.$router.params : ''
+        }
+      },
+      watch: {
+
+      }
+    })
+
+  </script>
+</body>
+
+</html>

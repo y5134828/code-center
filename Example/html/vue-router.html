@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 750px;
+            margin: 0 auto;
+            clear: both;
+        }
+
+        .tab>ul {
+            width: 100%;
+            height: 49px;
+            line-height: 49px;
+        }
+
+        .tab>ul li {
+            float: left;
+            width: 33%;
+            text-align: center;
+            list-style: none;
+            border: 1px solid #efefef;
+        }
+        .cont{
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container">
+            <div class="tab">
+                <ul>
+                    <li>
+                        <router-link to="/">tab1</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/tab2">tab2</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/tab3">tab3</router-link>
+                    </li>
+                </ul>
+            </div>
+            <div class="cont">
+                <button @click="tag">查看router</button>
+
+                <router-view></router-view>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script>
+        const tab = { template: `<div>$router</div>` };
+        const tab2 = { template: `<div>tab2</div>` };
+        const tab3 = { template: `<div>tab3</div>` };
+
+        const routes = [
+            { path: '/', component: tab },
+            { path: '/tab2/:id', name:'tab2', component: tab2 },
+            { path: '/tab3', component: tab3 }
+        ]
+        const router = new VueRouter({
+            routes
+        });
+        new Vue({
+            el: '#app',
+            router,
+            mounted () {
+                console.log(this.$router.params);
+            },
+            methods: {
+                tag () {
+                    this.$router.push({name:'tab2', params: {'id':'3'}});
+                }
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>

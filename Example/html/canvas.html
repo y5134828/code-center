@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #efefef;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="880" height="600"></canvas>
+
+    <script>
+        window.onload = function () {
+            // draw();
+        }
+    </script>
+    <script>
+        function creatCanvas(diam, color) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.moveTo(130, 130);
+            ctx.lineTo(210, 50);
+            ctx.lineTo(290, 130);
+            ctx.lineTo(370, 210);
+            ctx.lineTo(290, 290);
+            ctx.lineTo(210, 370);
+            ctx.lineTo(130, 290);
+            ctx.lineTo(50, 210);
+            ctx.lineTo(130, 130);
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(0,0,0,.1)';
+            ctx.arc(210, 45, 5, 0, Math.PI * 2, true);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(375, 210, 5, 0, Math.PI * 2, true);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(210, 375, 5, 0, Math.PI * 2, true);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(45, 210, 5, 0, Math.PI * 2, true);
+            ctx.fill();
+
+
+            ctx.clearRect(130, 130, 160, 160);
+            ctx.fillStyle = 'rgba(0,0,0,.3)';
+            ctx.fillRect(150, 150, 120, 120);
+            ctx.strokeRect(130, 130, 160, 160);
+            ctx.clearRect(170, 170, 80, 80);
+            ctx.fillRect(180, 180, 60, 60);
+            ctx.clearRect(190, 190, 40, 40);
+        }
+    </script>
+    <script>
+        var canvas=document.getElementById("canvas");
+        var gl=canvas.getContext("webgl");//上下文，绘图环境
+
+        gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        // Clear the color buffer with specified clear color
+        gl.clear(gl.COLOR_BUFFER_BIT);
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div></div>
+
+    <script>
+        function fn(...args) {
+            console.log(args instanceof Array)
+            console.log(Object.prototype.toString.call(args));
+            args.forEach(element => {
+                // console.log(element)
+            });
+
+            args.map((val,index)=>{
+                // console.log(`${index}---- ${val} `)
+            })
+
+            for (const key in args) {
+                if (args.hasOwnProperty(key)) {
+                    // console.log(args[key]);
+                    
+                }
+            }
+        }
+        fn(1,2,3);
+
+        var P = {
+            age: 18,
+            say: function () {
+                setTimeout(() => {
+                    console.log(this)
+                },0)
+            },
+            say1(){
+                setTimeout(() => {
+                    console.log(this)
+                },0)  
+            }
+        }
+        // P.say1();
+
+        var a = function () {
+            return function s() {
+                a = 1;
+                return ()=>{
+                    console.log(this)
+                }
+            }
+        }
+        a()().call({a:1});
+
+        let ddd = 'abcdbsdsadfafdafdsfwegrebafaesdbadv';
+
+        let ua = uniqed(ddd);
+        console.log(ua);
+
+        function uniqed(str) {
+            let arr = str.split('');
+            let newStr = '';
+            arr.forEach(element => {
+                newStr += newStr.indexOf(element) === -1?element:'';
+            });
+
+            return newStr;
+        }
+        let zz = [...new Set(ddd)].join('');
+        console.log(zz);
+
+        // 闭包
+        var bibao = function(){
+            var a = 0;
+            var d = 1000;
+            function pay(money) {
+                a += money;
+            }
+
+            function go() {
+                if(a < d){
+                    console.log(`消费金额不能小于${d}，您已消费${a}`);
+                }else{
+                    console.log(`你已消费${a}，请支付`);
+                }
+            }
+
+            return {
+                pay,
+                go
+            }
+        }();
+
+        setTimeout(() => {
+            bibao = null;
+        },30000)
+    </script>
+</body>
+</html>

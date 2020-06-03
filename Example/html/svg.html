@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="bm">
+
+    </div>
+    <script src="https://vis.baidu.com/js/lottie.min.js"></script>
+    <script>
+        (function () {
+
+            var animation = bodymovin.loadAnimation({
+                container: document.getElementById('bm'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'test.json'
+            })
+
+
+        })();
+    </script>
+</body>
+</html>
