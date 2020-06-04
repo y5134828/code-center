@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #notice{
+            width: 100%;
+            background-color: #000;
+            height: 44px;
+            box-sizing: border-box;
+            padding: 10px 20px;
+            color: #FFF;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="notice">为了响应国家“净网2020”行动，我司将严格按照国家规定，提高审核要求，关闭涉嫌违纪的应用。期间请用户自行排查删除，5月30号起将整体审查应用。违规应用处理方法：1、金融类应用，域名必须备案，备案公司必须有相关资质。否则删除应用；2、赌博，彩票应用，删除应用；3、黄色应用，删除应用；4、技术手段屏蔽我方审查，删除应用。注：应用被禁用后，App的所有花费损失自行承担。</div>
+
+    <script>
+        function Notice(dom, speed, loop){
+            this.notice = dom.indexOf('#') != -1? document.getElementById(dom.substr(1)):document.getElementsByClassName(dom.substr(1));
+            this.speed = speed;
+            this.loop = loop;
+            this.wrapWidth = this.notice.offsetWidth;
+
+            this.p = document.createElement('p');
+            this.p.innerHTML = this.notice.innerHTML;
+            this.p.style.display = 'inline-block';
+            this.p.style.whiteSpace = 'nowrap';
+            this.p.style.position = 'relative';
+            this.p.style.fontSize = '14px';
+            
+            this.notice.style.overflow = 'hidden';
+            this.notice.innerHTML = '';
+            this.notice.appendChild(this.p);
+            this.p.scrollLeft = speed;
+            this.pWdith = this.p.offsetWidth;
+
+            this.start();
+        }
+        Notice.prototype.start = function () {
+            this.p.style.left = this.wrapWidth + 'px';
+            console.log(this.p.style.left)
+            this.run();
+        }
+        Notice.prototype.run = function () {
+            if(this.p.style.left.substr(0, this.p.style.left.length-2) > -this.pWdith){
+                this.p.style.left = this.p.style.left.substr(0, this.p.style.left.length-2) - this.speed + 'px';
+                console.log(this.p.style.left.substr(0, this.p.style.left.length-2));
+                var _this = this;
+                setTimeout(function(){
+                    _this.run()
+                },36)
+            }else{
+                this.p.style.left = this.wrapWidth + 'px';
+                if(this.loop){
+                    this.start();
+                }
+                
+            }
+
+            // if(this.notice.scrollLeft <= this.pWdith){
+            //     this.notice.scrollLeft += this.speed;
+            //     var _this = this;
+            //     setTimeout(function(){
+            //         _this.run()
+            //     },36)
+            // }else{
+            //     this.notice.scrollLeft = 0;
+            //     if(this.loop){
+            //         this.start();
+            //     }
+                
+            // }
+        }
+
+        new Notice('#notice', 3, true);
+    </script>
+</body>
+</html>
